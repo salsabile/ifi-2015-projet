@@ -1,0 +1,81 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: IFI
+  description: >
+    #### Authentication service
+
+    Feel free to make a path or an operation and use **Try Operation** to test
+    it. The echo server will
+
+    render back everything.
+schemes:
+  - http
+securityDefinitions:
+  basicAuth:
+    type: basic
+    description: HTTP Basic Authentication. Works over `HTTP`
+host: localhost
+basePath: /
+paths:
+  /session:
+    post:
+      responses:
+        '201':
+          description: Authentification OK
+          headers:
+            X-SessionId:
+              description: The session id
+              type: string
+        '401':
+          description: "Les informations d'authentification ne sont pas correctes"
+  /session/{sessionId}:
+    delete:
+      parameters:
+        - name: sessionId
+          in: path
+          description: The session id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /employee:
+    get:
+      description: Retourne la liste de employés de l'entreprise
+      security:
+       - basicAuth: []
+      parameters:
+        - name : X-SessionId
+          in: header
+          description: The session id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Retourne la liste de employés de l'entreprise
+        '401':
+          description: "Unauthorized : Le session id n'est pas correct"
+  /employee/{username}:
+    parameters:
+      - name : X-SessionId
+        in: header
+        description: The session id
+        required: true
+        type: string
+      - name: username
+        type: string
+        in: path
+        required: true
+    get:
+      security:
+       - basicAuth: []
+      responses:
+        '200':
+          description: OK
+    post:
+      security:
+       - basicAuth: []
+      responses:
+        '200':
+          description: OK
