@@ -1,13 +1,25 @@
 package ifi2015.ifi_2015_projet;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="USER")
 public class User {
 
+	@Id
+	@Column(name="login")
 	private String login;
+	
+	@Column(name = "email")
 	private String email;
 	//private String photo;
-	private int facebookid;
+	/*private int facebookid;
 	private Skill skill;
-	private Projet projet;
+	private Projet projet;*/
+	
+	public User(){
+		this.login = "testé";
+	}
 
 	public String getLogin() {
 		return login;
@@ -25,7 +37,7 @@ public class User {
 		this.email = email;
 	}
 	
-	public int getFacebookid() {
+/*	public int getFacebookid() {
 		return facebookid;
 	}
 	
@@ -47,6 +59,11 @@ public class User {
 
 	public void setProjet(Projet projet) {
 		this.projet = projet;
+	}
+	*/
+	@Override
+	public String toString(){
+		return "login "+login;
 	}
 	
 }

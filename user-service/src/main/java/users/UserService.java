@@ -22,8 +22,7 @@ import java.util.List;
 public class UserService {
 	
 	public static String xSessionId = null;
-	public static String xName = null;
-
+	//public static String xName = null;
 
 	@RequestMapping(value = "/userlogin", method=RequestMethod.POST)
     public void postLoginUser(@RequestParam String userLogin, @RequestParam String userPassword){
@@ -54,7 +53,7 @@ public class UserService {
 		return test;
 	}
 	
-	@RequestMapping(value = "/userliste", method=RequestMethod.GET)
+	/*@RequestMapping(value = "/userliste", method=RequestMethod.GET)
     public String getLoginUser(@PathVariable String userLogin){
     	
     	RestTemplate restTemplate = new RestTemplate();
@@ -76,6 +75,6 @@ public class UserService {
     	
     	return xName;
         
-    }
+    }*/
 
 }
