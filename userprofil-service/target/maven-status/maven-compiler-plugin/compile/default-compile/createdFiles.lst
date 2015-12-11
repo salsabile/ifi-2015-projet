@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-userprofil/model/Userprofil.class
-userprofil/Main$1.class
-userprofil/Main.class
-userprofil/repository/UserprofilRepository.class
-userprofil/UserprofilController.class
-=======
 userprofil\repository\UserprofilRepository.class
 userprofil\UserprofilController.class
 userprofil\model\Userprofil.class
 userprofil\Main.class
 userprofil\Main$1.class
->>>>>>> Ajout de message possible en dur grace au message service

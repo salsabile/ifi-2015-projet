@@ -28,14 +28,6 @@ public class MessageController {
     public void getHastag(@PathVariable String hashtag, HttpServletResponse response){
         
     }
-<<<<<<< HEAD
-    
-    @RequestMapping(value="/user/{userlogin}", method= RequestMethod.GET)
-    @ResponseBody
-    public void getUser(@PathVariable String userlogin, HttpServletResponse response){
-    	response.
-    }*/
-=======
     */
 	
     @RequestMapping(value="/message", method= RequestMethod.GET)
@@ -43,17 +35,10 @@ public class MessageController {
     public void saveMessage() {
     	messageRepository.save(new Message("really", "nigger"));
     }
->>>>>>> Ajout de message possible en dur grace au message service
     
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<Iterable<Message>> message(HttpServletRequest request){
-<<<<<<< HEAD
-
 		return new ResponseEntity<Iterable<Message>>(messageRepository.findAll(), HttpStatus.OK);
-
-=======
-		return new ResponseEntity<Iterable<Message>>(messageRepository.findAll(), HttpStatus.OK);
->>>>>>> Ajout de message possible en dur grace au message service
 	}
 }
