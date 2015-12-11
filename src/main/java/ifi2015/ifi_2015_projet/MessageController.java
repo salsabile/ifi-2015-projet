@@ -50,11 +50,18 @@ public class MessageController {
 		return "index";
     }*/
 	
-	/*@RequestMapping(value = "/messageXsessionid", method=RequestMethod.POST)
-	public String userForm(Model model) {
-		model.addAttribute("xsessionid", UserController.xSessionId);
-		return "message";
-	}*/
+	@RequestMapping(value = "/messageEnvoyer", method=RequestMethod.GET)
+	public String sendMessage(Model model) {
+		
+		RestTemplate restTemplate = new RestTemplate();
+		HttpHeaders requestHttpHeaderNa = new HttpHeaders();
+		
+		HttpEntity<String> requestHttpEntityNa = new HttpEntity<String>("", requestHttpHeaderNa);
+		restTemplate.exchange("http://localhost:9393/messages/message", HttpMethod.GET, requestHttpEntityNa, String.class);
+		
+		model.addAttribute("name",UserController.name);
+		return "index";
+	}
 	
 	@RequestMapping(value = "/message", method=RequestMethod.POST)
 	public String userForm(Model model) {

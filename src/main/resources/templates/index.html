@@ -21,8 +21,11 @@
         		<nav class="nav">
 	                <ul class="nav-list">
 	                    <li class="nav-item">
-							<a class="pure-button" href="/userlogin">Retour</a>
+							<a class="pure-button" href="/userprofil">Editer profil</a>
 						</li>
+						<li class="nav-item">
+                        	<a class="pure-button" href="/deconnexion">Deconnexion</a>
+	                	</li>
 	                </ul>
 	            </nav>
         	</div>
@@ -37,6 +40,7 @@
 				    <textarea class="form-control" rows="3"></textarea>
 	                <button type="submit" class="pure-button pure-button-primary">Dis le !</button>
 	            </form>
+<<<<<<< HEAD
 	            
 	            <form class="pure-form pure-form-aligned" action="#" th:action="@{/userprofil}" th:object="${user}" method="post">
 				    <textarea class="form-control" rows="3"></textarea>
@@ -50,5 +54,11 @@
 	<script src="./script/jquery.min.js"></script>
     <script src="./script/bootstrap.min.js"></script>
 
+=======
+	            <a class="pure-button" href="/messageEnvoyer">Deconnexion</a>
+			</div>
+		</div>
+	</div>
+>>>>>>> Ajout de message possible en dur grace au message service
 </body>
 </html>

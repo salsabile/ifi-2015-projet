@@ -12,7 +12,8 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 public class UserprofilController {
 	
-	@RequestMapping(value = "/userprofil", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/userprofil", method=RequestMethod.GET)
 	public String userprofilForm(Model model) {
 		
 		RestTemplate restTemplate = new RestTemplate();

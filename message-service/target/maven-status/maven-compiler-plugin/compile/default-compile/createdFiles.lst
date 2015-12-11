@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 messages/model/Message.class
 messages/Main.class
 messages/Main$1.class
 messages/repository/MessageRepository.class
 messages/MessageController.class
+=======
+messages\Main$1.class
+messages\repository\MessageRepository.class
+messages\Main.class
+messages\model\Message.class
+messages\MessageController.class
+>>>>>>> Ajout de message possible en dur grace au message service

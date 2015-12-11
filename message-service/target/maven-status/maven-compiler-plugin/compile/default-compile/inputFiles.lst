@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 /home/m2eserv/bellart/workspace/ifi-2015-projet/message-service/src/main/java/messages/MessageController.java
 /home/m2eserv/bellart/workspace/ifi-2015-projet/message-service/src/main/java/messages/Main.java
 /home/m2eserv/bellart/workspace/ifi-2015-projet/message-service/src/main/java/messages/repository/MessageRepository.java
 /home/m2eserv/bellart/workspace/ifi-2015-projet/message-service/src/main/java/messages/model/Message.java
+=======
+C:\Users\Gamba\workspace\ifi-2015-projet\message-service\src\main\java\messages\model\Message.java
+C:\Users\Gamba\workspace\ifi-2015-projet\message-service\src\main\java\messages\repository\MessageRepository.java
+C:\Users\Gamba\workspace\ifi-2015-projet\message-service\src\main\java\messages\Main.java
+C:\Users\Gamba\workspace\ifi-2015-projet\message-service\src\main\java\messages\MessageController.java
+>>>>>>> Ajout de message possible en dur grace au message service

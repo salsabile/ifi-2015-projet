@@ -19,6 +19,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
 	
 	public static String xSessionId = null;
+
+	/*
+	public static String prenom = null;
+	public static String nom = null;
+	*/
+	public static String name = null;
 	
 	@RequestMapping(value = "/userlogin", method=RequestMethod.POST)
 	public String userSubmit(@ModelAttribute User user, Model model){
@@ -49,15 +55,45 @@ public class UserController {
 		HttpEntity<String> requestHttpEntityNa = new HttpEntity<String>("", requestHttpHeaderNa);
 		HttpEntity<String> responseHttpEntityNa = restTemplate.exchange("http://localhost:9090/employee/"+user.getLogin(), HttpMethod.GET, requestHttpEntityNa, String.class);
 		
+<<<<<<< HEAD
 		String name = responseHttpEntityNa.getBody();
 		String[] nomprenom = name.split("\"");
 
 		name=" "+nomprenom[7]+" "+nomprenom[11];
+=======
+		name = responseHttpEntityNa.getBody();
+		String[] nomprenom = name.split("\"");
+		
+		String nom = nomprenom[7];
+		String prenom = nomprenom[11];
+		
+		name=" "+nom+" "+prenom;
+>>>>>>> Ajout de message possible en dur grace au message service
 		model.addAttribute("name",name);
 		
 		return "index";
     }
 	
+<<<<<<< HEAD
+=======
+	@RequestMapping(value = "/index", method=RequestMethod.GET)
+	public String index(Model model) {
+		model.addAttribute("name",name);
+		return "index";
+	}
+	
+	@RequestMapping(value = "/deconnexion", method=RequestMethod.GET)
+	public String userDeconnexion(Model model) {
+		
+		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.delete("http://localhost:9090/session/"+xSessionId);
+		xSessionId = null;
+
+		model.addAttribute("user", new User());
+		return "user";
+	}
+	
+>>>>>>> Ajout de message possible en dur grace au message service
 	@RequestMapping(value = "/userlogin", method=RequestMethod.GET)
 	public String userForm(Model model) {
 		model.addAttribute("user", new User());
