@@ -30,6 +30,10 @@ public class Main {
                 repository.save(new User("rwooten", "Raya", "Wooten", "ROY07NKK6YE"));
                 repository.save(new User("pfrederick", "Plato", "Frederick", "LUN29ITJ1MX"));
                 repository.save(new User("rnewton", "Rajah", "Newton", "BFR50ZOZ1PH"));
+                repository.save(new User("a", "a", "a", "a"));
+                repository.save(new User("jgamba", "Jordann", "Gamba", "jordann"));
+                repository.save(new User("cbellart", "Clement", "Bellart", "clement"));
+                repository.save(new User("shakimi", "Salsabile", "Hakimi", "salsabile"));
             }
         };
     }

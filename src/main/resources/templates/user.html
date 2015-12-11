@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Réseau Social - Page de connexion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ 
+ 	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+ 	<link rel="stylesheet" th:href="@{/css/bootstrap-social.css}" />
+ 	<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" />
+ 	<link rel="stylesheet" th:href="@{/css/pure-min.css}" />
+ 	<link rel="stylesheet" th:href="@{/css/grids-responsive-min.css}" />
+ 	<link rel="stylesheet" th:href="@{/css/blog.css}" />
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+		<div class="sidebar pure-u-1 pure-u-md-1-4">
+			<div class="header">
+	            <h1 class="brand-title">Réseau social d'entreprise</h1>
+	            <h2 class="brand-tagline">Partagez vos messages et fichiers en toute simplicité</h2>
+        	</div>
+		</div>
+		
+		<div class="content pure-u-1 pure-u-md-3-4">
+			<div>
+				<h1>Login</h1>
+				
+				<form class="pure-form pure-form-aligned" action="#" th:action="@{/userlogin}" th:object="${user}" method="post">
+                	<fieldset>
+                		<div class="pure-control-group">
+	                        <label for="login">Username</label>
+	                        <input id="login" type="text" th:field="*{login}" required="required" placeholder="Username" />
+	                    </div>
+	                    
+	                    <div class="pure-control-group">
+	                        <label for="pass">Password</label>
+	                        <input id="pass" type="password" th:field="*{pass}" required="required" placeholder="Password" />
+	                    </div>
+	                    
+	                    <div class="pure-controls">
+	                    	<input class="pure-button pure-button-primary" type="submit" value="Login" />
+	                    </div>
+                	</fieldset>
+                </form>
+			</div>
+		</div>
+	</div>
+
+	<script src="./script/jquery.min.js"></script>
+    <script src="./script/bootstrap.min.js"></script>
+</body>
+</html>

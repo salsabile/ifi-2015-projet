@@ -10,17 +10,24 @@ public class User {
 	@Column(name="login")
 	private String login;
 	
-	@Column(name = "email")
-	private String email;
+	private String pass;
+	
+	private String xsessionId;
+	/*@Column(name = "email")
+	private String email;*/
 	//private String photo;
 	/*private int facebookid;
 	private Skill skill;
 	private Projet projet;*/
 	
 	public User(){
-		this.login = "testé";
+	
 	}
-
+	
+	public User(String xSessionId){
+		this.xsessionId = xSessionId;
+	}
+	
 	public String getLogin() {
 		return login;
 	}
@@ -29,13 +36,29 @@ public class User {
 		this.login = login;
 	}
 	
-	public String getEmail() {
+	public String getPass() {
+		return pass;
+	}
+	
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+	
+	public String getSession() {
+		return xsessionId;
+	}
+	
+	public void setSession(String xsessionId) {
+		this.xsessionId = xsessionId;
+	}
+	
+	/*public String getEmail() {
 		return email;
 	}
 	
 	public void setEmail(String email) {
 		this.email = email;
-	}
+	}*/
 	
 /*	public int getFacebookid() {
 		return facebookid;

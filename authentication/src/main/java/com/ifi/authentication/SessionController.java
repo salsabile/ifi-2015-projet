@@ -28,8 +28,8 @@ public class SessionController {
     private SessionRepository sessionRepository;
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> startSession(@RequestBody Authentication authentication, HttpServletResponse response){
-
+    public ResponseEntity<Void> startSession(@RequestBody Authentication authentication, HttpServletResponse response) throws Exception{
+    	
         User user = userRepository.findUserByUserNameAndPassword(authentication.getUserName(), authentication.getPassword());
 
         if( user == null ){
@@ -46,5 +46,4 @@ public class SessionController {
         sessionRepository.endSession(sessionId) ;
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
-
 }

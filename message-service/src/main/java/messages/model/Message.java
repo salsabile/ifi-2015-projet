@@ -1,12 +1,10 @@
-package ifi2015.ifi_2015_projet;
-
-import java.io.Serializable;
+package messages.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Message implements Serializable{
+public class Message {
 	
 	@Id
 	private String content;

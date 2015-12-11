@@ -1,0 +1,5 @@
+messages/model/Message.class
+messages/Main.class
+messages/Main$1.class
+messages/repository/MessageRepository.class
+messages/MessageController.class
