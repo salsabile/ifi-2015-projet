@@ -24,23 +24,16 @@
 		<div class="content pure-u-1 pure-u-md-3-4">
 			<div>
 				<h1>Liste des messages</h1>
-				
-                	<fieldset>
-                		<div class="pure-control-group">
-	                        <div>
-								<tr th:each="message : ${messages}">
-								    <td th:text="${message.content}"></td>
-								         #<td th:text="${message.hashtag}"></td><br/>
-								</tr>
-							</div>
-	                    </div>
-	                    
-                	</fieldset>
+                <div class="pure-control-group">
+					<div>
+						<tr th:each="message : ${messages}">
+							<td th:text="${message.content}"></td>
+							#<td th:text="${message.hashtag}"></td><br/>
+						</tr>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-
-	<script src="./script/jquery.min.js"></script>
-    <script src="./script/bootstrap.min.js"></script>
 </body>
 </html>

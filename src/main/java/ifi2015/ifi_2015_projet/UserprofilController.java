@@ -52,6 +52,7 @@ public class UserprofilController {
 		restTemplate.exchange("http://localhost:9292/userprofil/update/"+userprofil.getLogin()+"/"+userprofil.getEmail()+"/"+userprofil.getFacebookid()+"/"+userprofil.getTwitterid()+"/"+userprofil.getLinkedinid()+"/"+userprofil.getCompetence()+"/"+userprofil.getProjet(), HttpMethod.POST, requestHttpEntity, String.class);
 		
 		model.addAttribute("name",UserController.name);
+		model.addAttribute("message", new Message());
 		return "index";
 	}
 	

@@ -8,8 +8,6 @@ public class Message {
 	
 	@Id
 	private String content;
-	
-	//private Hashtag hashtag;
 	private String hashtag;
 	
 	public Message(String content, String hashtag){
@@ -35,15 +33,4 @@ public class Message {
 	public void setHashtag(String hashtag) {
 		this.hashtag = hashtag;
 	}
-	
-	/*public Hashtag getHashtag() {
-		return hashtag;
-	}
-	
-	public void setHashtag(Hashtag hashtag) {
-		this.hashtag = hashtag;
-	}*/
-	
-	
-	
 }

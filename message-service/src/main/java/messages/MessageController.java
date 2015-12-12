@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,23 +23,15 @@ public class MessageController {
 	
 	@Autowired
 	private MessageRepository messageRepository;
-
-    /*@RequestMapping(value="{hastag}", method= RequestMethod.GET)
-    @ResponseBody
-    public void getHastag(@PathVariable String hashtag, HttpServletResponse response){
-        
+   
+	@RequestMapping(value="/message", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void saveMessage(@RequestBody Message message) {
+		messageRepository.save(new Message(message.getContent(), message.getHashtag()));
     }
-    */
 	
-    @RequestMapping(value="/message", method= RequestMethod.GET)
-    @ResponseBody
-    public void saveMessage() {
-    	messageRepository.save(new Message("really", "nigger"));
-    }
-    
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<Iterable<Message>> message(HttpServletRequest request){
 		return new ResponseEntity<Iterable<Message>>(messageRepository.findAll(), HttpStatus.OK);
-	}
+	}	
 }

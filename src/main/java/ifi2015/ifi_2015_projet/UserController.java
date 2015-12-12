@@ -43,7 +43,7 @@ public class UserController {
     	
     	user.setSession(xSessionId);
     	    	
-		model.addAttribute("user", user);
+		
 		
 		HttpHeaders requestHttpHeaderNa = new HttpHeaders();
 		requestHttpHeaderNa.set("xSessionId", xSessionId);
@@ -54,11 +54,14 @@ public class UserController {
 		name = responseHttpEntityNa.getBody();
 		String[] nomprenom = name.split("\"");
 		
-		String nom = nomprenom[7];
-		String prenom = nomprenom[11];
+		String prenom = nomprenom[7];
+		String nom = nomprenom[11];
 		
-		name=" "+nom+" "+prenom;
+		name=" "+prenom+" "+nom;
+		
+		model.addAttribute("user", user);
 		model.addAttribute("name",name);
+		model.addAttribute("message", new Message());
 		
 		username = user.getLogin();
 		
@@ -68,6 +71,7 @@ public class UserController {
 	@RequestMapping(value = "/index", method=RequestMethod.GET)
 	public String index(Model model) {
 		model.addAttribute("name",name);
+		model.addAttribute("message", new Message());
 		return "index";
 	}
 	
@@ -79,6 +83,7 @@ public class UserController {
 		xSessionId = null;
 
 		model.addAttribute("user", new User());
+		model.addAttribute("message", new Message());
 		return "user";
 	}
 	

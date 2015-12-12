@@ -36,12 +36,13 @@
 				<h1 th:inline="text" > Bienvenue [[${name}]] !</h1>
 				<p>Dis quelque chose sur : </p>
 				
-				<form class="pure-form pure-form-aligned" action="#" th:action="@{/message}" th:object="${user}" method="post">
-				    <textarea class="form-control" rows="3"></textarea>
-	                <button type="submit" class="pure-button pure-button-primary">Dis le !</button>
+				<a class="pure-button" href="/message">Voir messages !</a>
+				
+				<form class="pure-form pure-form-aligned" action="#" th:action="@{/messageEnvoyer}" th:object="${message}" method="post">
+				 
+				    <textarea id="content" th:field="*{content}" class="form-control" rows="3"></textarea>
+				    <input class="pure-button pure-button-primary" type="submit" value="Dis le !" />
 	            </form>
-	     
-	            <a class="pure-button" href="/messageEnvoyer">Deconnexion</a>
 			</div>
 		</div>
 	</div>

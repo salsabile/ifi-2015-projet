@@ -1,17 +1,13 @@
 package ifi2015.ifi_2015_projet;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Message implements Serializable{
+public class Message {
 	
 	@Id
 	private String content;
-	
-	//private Hashtag hashtag;
 	private String hashtag;
 	
 	public Message(String content, String hashtag){
