@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
 	
 	public static String xSessionId = null;
+	public static String username = null;
 	public static String name = null;
 	
 	@RequestMapping(value = "/userlogin", method=RequestMethod.POST)
@@ -58,6 +59,8 @@ public class UserController {
 		
 		name=" "+nom+" "+prenom;
 		model.addAttribute("name",name);
+		
+		username = user.getLogin();
 		
 		return "index";
     }
