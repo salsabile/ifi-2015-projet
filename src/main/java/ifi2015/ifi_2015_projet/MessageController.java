@@ -95,7 +95,7 @@ public class MessageController {
 			c = contenuMessage[0].split(":");
 			h = contenuMessage[1].split(":");
 			message.setContent(c[1].split("\"")[1]);
-			message.setHashtag(h[1]);
+			message.setHashtag(h[1].split("\"")[1]);
 			messages.add(message);
 			
 			//model.addAttribute("name",messageContenuHastag[i]);

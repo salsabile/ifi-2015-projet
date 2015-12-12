@@ -28,8 +28,10 @@
                 	<fieldset>
                 		<div class="pure-control-group">
 	                        <div>
-								<div th:each="message : ${messages}" th:text="${message.content}" />
-								<p></p>
+								<tr th:each="message : ${messages}">
+								    <td th:text="${message.content}"></td>
+								         #<td th:text="${message.hashtag}"></td><br/>
+								</tr>
 							</div>
 	                    </div>
 	                    
