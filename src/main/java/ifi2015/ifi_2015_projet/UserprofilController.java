@@ -12,11 +12,9 @@ import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class UserprofilController {
-	
-	// Le get pour avoir les informations en lecture
-	
+		
 	@RequestMapping(value = "/userprofil", method=RequestMethod.GET)
-	public String userprofilForm(@ModelAttribute Userprofil userprofil, Model model) {
+	public String userprofil(@ModelAttribute Userprofil userprofil, Model model) {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -26,59 +24,35 @@ public class UserprofilController {
 		HttpEntity<String> responseHttpEntityNa = restTemplate.exchange("http://localhost:9292/userprofil/"+UserController.username, HttpMethod.GET, requestHttpEntityNa, String.class);
 		
 		String userprofils = responseHttpEntityNa.getBody();
-		
-		
-		// Infos du profil 
-		//{"login":"a","email":"email","facebookid":"facebook",
-		//"twitterid":"twitter","linkedinid":"linkedinid"} !
-		
+
 		String[] infosprofil = userprofils.split("\"");
-		
-		/*String login = infosprofil[3];
-		String email = infosprofil[7];
-		String facebookid = infosprofil[11];
-		String twitterid = infosprofil[15];
-		String linkedinid = infosprofil[19];
-		*/
 		
 		userprofil.setLogin(infosprofil[3]);
 		userprofil.setEmail(infosprofil[7]);
 		userprofil.setFacebookid(infosprofil[11]);
 		userprofil.setTwitterid(infosprofil[15]);
 		userprofil.setLinkedinid(infosprofil[19]);
-		
-		/*model.addAttribute("login",login);
-		model.addAttribute("email",email);
-		model.addAttribute("facebookid",facebookid);
-		model.addAttribute("twitterid",twitterid);
-		model.addAttribute("linkedinid",linkedinid);*/
-		
+		userprofil.setCompetence(infosprofil[23]);
+		userprofil.setProjet(infosprofil[27]);
+	
 		model.addAttribute("userprofil",userprofil);
 		
 		return "userprofilform";
 		
-		//return "userprofilform";
 	}
 	
-	// Un post pour le formulaire afin de mette à jour les informations
-	
-	/*@RequestMapping(value = "/userprofil", method=RequestMethod.POST)
-	public String userprofilForm(Model model) {
+	@RequestMapping(value = "/profilupdate", method=RequestMethod.POST)
+	public String updateProfil(@ModelAttribute Userprofil userprofil, Model model) {
 		
 		RestTemplate restTemplate = new RestTemplate();
+		HttpHeaders requestHttpHeader = new HttpHeaders();
 		
-		HttpHeaders requestHttpHeaderNa = new HttpHeaders();
-		
-		HttpEntity<String> requestHttpEntityNa = new HttpEntity<String>("", requestHttpHeaderNa);
-		HttpEntity<String> responseHttpEntityNa = restTemplate.exchange("http://localhost:9292/userprofil/a", HttpMethod.GET, requestHttpEntityNa, String.class);
-		
-		String userprofil = responseHttpEntityNa.getBody();
-		
-		model.addAttribute("userprofil",userprofil);
-		
-		return "userprofil";
-	}*/
-	
-	
+		HttpEntity<String> requestHttpEntity = new HttpEntity<String>("", requestHttpHeader);
 
+		restTemplate.exchange("http://localhost:9292/userprofil/update/"+userprofil.getLogin()+"/"+userprofil.getEmail()+"/"+userprofil.getFacebookid()+"/"+userprofil.getTwitterid()+"/"+userprofil.getLinkedinid()+"/"+userprofil.getCompetence()+"/"+userprofil.getProjet(), HttpMethod.POST, requestHttpEntity, String.class);
+		
+		model.addAttribute("name",UserController.name);
+		return "index";
+	}
+	
 }

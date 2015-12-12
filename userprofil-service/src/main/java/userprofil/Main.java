@@ -21,10 +21,10 @@ public class Main {
         return new CommandLineRunner() {
             @Override
             public void run(String... strings) throws Exception {
-                repository.save(new Userprofil("a", "email@email.fr", "facebook", "twitter", "linkedinid"));
-                repository.save(new Userprofil("jgamba", "jgamba@email.fr", "jgambaF", "jgambaT", "jgambaL"));
-                repository.save(new Userprofil("cbellart", "cbellart@email.fr", "cbellartF", "", ""));
-                repository.save(new Userprofil("shakimi", "shakimi@email.fr", "shakimiF", "shakimiT", ""));
+                repository.save(new Userprofil("a", "email@email.fr", "facebook", "twitter", "linkedinid", "Aucune", "Aucun"));
+                repository.save(new Userprofil("jgamba", "jgamba@email.fr", "jgambaF", "jgambaT", "jgambaL", "JEE", "Réseau social"));
+                repository.save(new Userprofil("cbellart", "cbellart@email.fr", "cbellartF", "", "", "JEE", "Réseau social"));
+                repository.save(new Userprofil("shakimi", "shakimi@email.fr", "shakimiF", "shakimiT", "", "JEE", "Réseau social"));
             }
         };
     }
