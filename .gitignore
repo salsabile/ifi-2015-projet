@@ -13,6 +13,8 @@ hs_err_pid*
 /target/
 authentication/target/
 document-service/target/
+message-service/target/
+userprofil-service/target/
 
 pom.xml.tag
 pom.xml.releaseBackup

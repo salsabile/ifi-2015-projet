@@ -28,17 +28,18 @@ public class MessageController {
     public void getHastag(@PathVariable String hashtag, HttpServletResponse response){
         
     }
-    */
-	
-    @RequestMapping(value="/message", method= RequestMethod.GET)
+    
+    @RequestMapping(value="/user/{userlogin}", method= RequestMethod.GET)
     @ResponseBody
-    public void saveMessage() {
-    	messageRepository.save(new Message("really", "nigger"));
-    }
+    public void getUser(@PathVariable String userlogin, HttpServletResponse response){
+    	response.
+    }*/
     
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<Iterable<Message>> message(HttpServletRequest request){
+
 		return new ResponseEntity<Iterable<Message>>(messageRepository.findAll(), HttpStatus.OK);
+
 	}
 }
