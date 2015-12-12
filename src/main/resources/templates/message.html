@@ -23,12 +23,12 @@
 		
 		<div class="content pure-u-1 pure-u-md-3-4">
 			<div>
-				<h1>Login</h1>
+				<h1>Liste des messages</h1>
 				
                 	<fieldset>
                 		<div class="pure-control-group">
 	                        <div>
-								<h1 th:inline="text" > Tous les messages [[${name}]] !</h1>
+								<div th:each="message : ${messages}" th:text="${message.content}" />
 								<p></p>
 							</div>
 	                    </div>

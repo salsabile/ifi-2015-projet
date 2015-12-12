@@ -46,6 +46,9 @@ public class Message implements Serializable{
 		this.hashtag = hashtag;
 	}*/
 	
+	public String toString(){
+		return " "+ content+"  "+hashtag;
+	}
 	
 	
 }

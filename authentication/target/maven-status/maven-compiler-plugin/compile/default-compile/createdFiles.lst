@@ -1,8 +1,8 @@
-com/ifi/authentication/EmployeeController.class
-com/ifi/authentication/repository/UserRepository.class
-com/ifi/authentication/Main$1.class
-com/ifi/authentication/repository/SessionRepository.class
-com/ifi/authentication/model/Authentication.class
-com/ifi/authentication/model/User.class
-com/ifi/authentication/Main.class
-com/ifi/authentication/SessionController.class
+com\ifi\authentication\Main.class
+com\ifi\authentication\SessionController.class
+com\ifi\authentication\EmployeeController.class
+com\ifi\authentication\model\User.class
+com\ifi\authentication\repository\UserRepository.class
+com\ifi\authentication\repository\SessionRepository.class
+com\ifi\authentication\Main$1.class
+com\ifi\authentication\model\Authentication.class
