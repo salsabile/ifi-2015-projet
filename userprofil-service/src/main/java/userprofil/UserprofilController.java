@@ -29,7 +29,7 @@ public class UserprofilController {
 	public ResponseEntity<Userprofil> profil(@PathVariable String login, HttpServletRequest request){
 		return new ResponseEntity<Userprofil>(userprofilRepository.findOne(login), HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(method= RequestMethod.POST, value="/update/{login}/{email}/{facebook}/{twitter}/{linkedin}/{competence}/{projet}")
     @ResponseBody
     public void saveProfil(@PathVariable String login, @PathVariable String email, @PathVariable String facebook, @PathVariable String twitter, @PathVariable String linkedin, @PathVariable String competence, @PathVariable String projet, HttpServletRequest request) {

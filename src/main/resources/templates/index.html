@@ -35,14 +35,25 @@
 			<div>
 				<h1 th:inline="text" > Bienvenue [[${name}]] !</h1>
 				<p>Dis quelque chose sur : </p>
-				
-				<a class="pure-button" href="/message">Voir messages !</a>
-				
 				<form class="pure-form pure-form-aligned" action="#" th:action="@{/messageEnvoyer}" th:object="${message}" method="post">
 				 
 				    <textarea id="content" th:field="*{content}" class="form-control" rows="3"></textarea>
 				    <input class="pure-button pure-button-primary" type="submit" value="Dis le !" />
 	            </form>
+			</div>
+		</div>
+		
+		<div class="content pure-u-1 pure-u-md-3-4">
+			<div>
+				<h1>Liste des messages</h1>
+                <div class="pure-control-group">
+					<div>
+						<tr th:each="post : ${messages}">
+							<td th:text="${post.content}"></td>
+							#<td th:text="${post.hashtag}"></td><br/>
+						</tr>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

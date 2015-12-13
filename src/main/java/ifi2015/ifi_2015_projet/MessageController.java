@@ -1,6 +1,7 @@
 package ifi2015.ifi_2015_projet;
 
 import java.util.ArrayList;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -14,6 +15,8 @@ import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class MessageController {
+	
+	public static ArrayList<Message> messages = new ArrayList<Message>();
 		
 	@RequestMapping(value = "/messageEnvoyer", method=RequestMethod.POST)
 	public String sendMessage(@ModelAttribute Message message, Model model) {
@@ -31,11 +34,14 @@ public class MessageController {
 		model.addAttribute("message", new Message());
 		model.addAttribute("name",UserController.name);
 		
+		messages = new ArrayList<Message>();
+		messages = userForm(messages, model);
+		model.addAttribute("messages", messages);
+		
 		return "index";
 	}
 	
-	@RequestMapping(value = "/message", method=RequestMethod.GET)
-	public String userForm(ArrayList<Message> messages, Model model) {
+	public static ArrayList<Message> userForm(ArrayList<Message> messages, Model model) {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		HttpHeaders requestHttpHeader = new HttpHeaders();
@@ -60,9 +66,6 @@ public class MessageController {
 			messages.add(message);
 		}
 		
-		model.addAttribute("messages",messages);
-		
-		return "message";
+		return messages;
 	}
-	
 }

@@ -1,5 +1,7 @@
 package ifi2015.ifi_2015_projet;
 
+import java.util.ArrayList;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -26,18 +28,16 @@ public class UserController {
 	public String userSubmit(@ModelAttribute User user, Model model){
 		
     	RestTemplate restTemplate = new RestTemplate();
-    	
     	HttpHeaders requestHttpHeader = new HttpHeaders();
     	HttpHeaders responseHttpHeader = new HttpHeaders();
-    	
     	requestHttpHeader.setContentType(MediaType.APPLICATION_JSON);
     	
     	HttpEntity<String> requestHttpEntity = new HttpEntity<String>("{\"userName\":\""+user.getLogin()+"\", \"password\":\""+user.getPass()+"\" }", requestHttpHeader);
     	HttpEntity<String> responseHttpEntity = restTemplate.exchange("http://localhost:9090/session", HttpMethod.POST, requestHttpEntity, String.class);
     	
     	responseHttpHeader = responseHttpEntity.getHeaders();
-    	
     	xSessionId = responseHttpHeader.get("xSessionId").get(0);
+    	
     	model.addAttribute("xsessionId", xSessionId);
     	user.setSession(xSessionId);
 
@@ -56,11 +56,13 @@ public class UserController {
 		name=" "+prenom+" "+nom;
 		username = user.getLogin();
 		
+		MessageController.messages = new ArrayList<Message>();
+		MessageController.messages = MessageController.userForm(MessageController.messages, model);
+		
 		model.addAttribute("user", user);
 		model.addAttribute("name",name);
 		model.addAttribute("message", new Message());
-		
-		username = user.getLogin();
+		model.addAttribute("messages", MessageController.messages);
 		
 		return "index";
     }
@@ -69,6 +71,10 @@ public class UserController {
 	public String index(Model model) {
 		model.addAttribute("name",name);
 		model.addAttribute("message", new Message());
+		
+		MessageController.messages = new ArrayList<Message>();
+		MessageController.messages = MessageController.userForm(MessageController.messages, model);
+		model.addAttribute("messages", MessageController.messages);
 		return "index";
 	}
 	

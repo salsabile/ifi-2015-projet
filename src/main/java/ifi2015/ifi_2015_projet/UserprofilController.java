@@ -1,5 +1,7 @@
 package ifi2015.ifi_2015_projet;
 
+import java.util.ArrayList;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -40,7 +42,7 @@ public class UserprofilController {
 		return "userprofilform";
 		
 	}
-	
+
 	@RequestMapping(value = "/profilupdate", method=RequestMethod.POST)
 	public String updateProfil(@ModelAttribute Userprofil userprofil, Model model) {
 		
@@ -49,10 +51,15 @@ public class UserprofilController {
 		
 		HttpEntity<String> requestHttpEntity = new HttpEntity<String>("", requestHttpHeader);
 
+		userprofil.hydrater();
 		restTemplate.exchange("http://localhost:9292/userprofil/update/"+userprofil.getLogin()+"/"+userprofil.getEmail()+"/"+userprofil.getFacebookid()+"/"+userprofil.getTwitterid()+"/"+userprofil.getLinkedinid()+"/"+userprofil.getCompetence()+"/"+userprofil.getProjet(), HttpMethod.POST, requestHttpEntity, String.class);
 		
 		model.addAttribute("name",UserController.name);
 		model.addAttribute("message", new Message());
+		
+		MessageController.messages = new ArrayList<Message>();
+		MessageController.messages = MessageController.userForm(MessageController.messages, model);
+		model.addAttribute("messages", MessageController.messages);
 		return "index";
 	}
 	

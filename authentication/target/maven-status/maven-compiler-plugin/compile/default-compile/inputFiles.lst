@@ -1,17 +1,7 @@
-<<<<<<< HEAD
-c:\Users\salsabile\Documents\Formation\Lille\Master_2\IFI\JEE\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\model\User.java
-c:\Users\salsabile\Documents\Formation\Lille\Master_2\IFI\JEE\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\repository\SessionRepository.java
-c:\Users\salsabile\Documents\Formation\Lille\Master_2\IFI\JEE\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\Main.java
-c:\Users\salsabile\Documents\Formation\Lille\Master_2\IFI\JEE\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\model\Authentication.java
-c:\Users\salsabile\Documents\Formation\Lille\Master_2\IFI\JEE\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\SessionController.java
-c:\Users\salsabile\Documents\Formation\Lille\Master_2\IFI\JEE\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\EmployeeController.java
-c:\Users\salsabile\Documents\Formation\Lille\Master_2\IFI\JEE\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\repository\UserRepository.java
-=======
-C:\Users\Gamba\workspace\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\model\User.java
-C:\Users\Gamba\workspace\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\repository\SessionRepository.java
-C:\Users\Gamba\workspace\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\EmployeeController.java
-C:\Users\Gamba\workspace\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\Main.java
-C:\Users\Gamba\workspace\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\model\Authentication.java
-C:\Users\Gamba\workspace\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\SessionController.java
-C:\Users\Gamba\workspace\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\repository\UserRepository.java
->>>>>>> Enregistrement de message possible dans la base
+C:\Users\Gamba\workspace\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\Main.java
+C:\Users\Gamba\workspace\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\model\User.java
+C:\Users\Gamba\workspace\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\repository\SessionRepository.java
+C:\Users\Gamba\workspace\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\SessionController.java
+C:\Users\Gamba\workspace\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\model\Authentication.java
+C:\Users\Gamba\workspace\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\repository\UserRepository.java
+C:\Users\Gamba\workspace\Projet\ifi-2015-projet\authentication\src\main\java\com\ifi\authentication\EmployeeController.java

@@ -25,6 +25,27 @@ public class Userprofil {
 		this.projet = projet;
 	}
 	
+	public void hydrater() {
+		if (this.email == "" ) {
+			this.setEmail("adresse@mail.com");
+		}
+		if (this.facebookid == "" ) {
+			this.setFacebookid("facebook");
+		}
+		if (this.twitterid == "" ) {
+			this.setTwitterid("twitter");
+		}
+		if (this.linkedinid == "" ) {
+			this.setLinkedinid("linkedin");
+		}
+		if (this.competence == "" ) {
+			this.setCompetence("competence");
+		}
+		if (this.projet == "" ) {
+			this.setProjet("projet");
+		}
+	}
+	
 	public Userprofil(){
 	}
 	

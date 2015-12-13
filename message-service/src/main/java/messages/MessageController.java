@@ -25,7 +25,7 @@ public class MessageController {
 	private MessageRepository messageRepository;
    
 	@RequestMapping(value="/message", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void saveMessage(@RequestBody Message message) {
+    public void saveMessage(@RequestBody Message message, HttpServletResponse response) {
 		messageRepository.save(new Message(message.getContent(), message.getHashtag()));
     }
 	

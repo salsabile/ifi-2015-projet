@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-c:\Users\salsabile\Documents\Formation\Lille\Master_2\IFI\JEE\Projet\ifi-2015-projet\message-service\src\main\java\messages\model\Message.java
-c:\Users\salsabile\Documents\Formation\Lille\Master_2\IFI\JEE\Projet\ifi-2015-projet\message-service\src\main\java\messages\MessageController.java
-c:\Users\salsabile\Documents\Formation\Lille\Master_2\IFI\JEE\Projet\ifi-2015-projet\message-service\src\main\java\messages\repository\MessageRepository.java
-c:\Users\salsabile\Documents\Formation\Lille\Master_2\IFI\JEE\Projet\ifi-2015-projet\message-service\src\main\java\messages\Main.java
-=======
-C:\Users\Gamba\workspace\ifi-2015-projet\message-service\src\main\java\messages\model\Message.java
-C:\Users\Gamba\workspace\ifi-2015-projet\message-service\src\main\java\messages\repository\MessageRepository.java
-C:\Users\Gamba\workspace\ifi-2015-projet\message-service\src\main\java\messages\Main.java
-C:\Users\Gamba\workspace\ifi-2015-projet\message-service\src\main\java\messages\MessageController.java
-<<<<<<< HEAD
->>>>>>> Enregistrement de message dans le repository, mais qui produit un bug et redirige vers la page d'erreur
-=======
->>>>>>> Enregistrement de message possible dans la base
+C:\Users\Gamba\workspace\Projet\ifi-2015-projet\message-service\src\main\java\messages\model\Message.java
+C:\Users\Gamba\workspace\Projet\ifi-2015-projet\message-service\src\main\java\messages\MessageController.java
+C:\Users\Gamba\workspace\Projet\ifi-2015-projet\message-service\src\main\java\messages\Main.java
+C:\Users\Gamba\workspace\Projet\ifi-2015-projet\message-service\src\main\java\messages\repository\MessageRepository.java
