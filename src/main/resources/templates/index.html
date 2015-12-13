@@ -45,15 +45,21 @@
 		
 		<div class="content pure-u-1 pure-u-md-3-4">
 			<div>
-				<h1>Liste des messages</h1>
-                <div class="pure-control-group">
-					<div>
-						<tr th:each="post : ${messages}">
-							<td th:text="${post.content}"></td>
-							#<td th:text="${post.hashtag}"></td><br/>
-						</tr>
-					</div>
-				</div>
+				<div class="posts">
+                	<h1 class="content-subhead">Derniers messages</h1>
+                	<div>
+                		<section th:each="post : ${messages}" class="post">
+                			<div class="post-description">
+                				<p th:text="${post.content}"></p>
+                			</div>
+                			
+                			<p class="post-meta">
+                				By Auteur
+                			</p>
+                		</section>
+                		
+                	</div>
+                </div>
 			</div>
 		</div>
 	</div>

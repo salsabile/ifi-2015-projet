@@ -15,6 +15,9 @@ authentication/target
 document-service/target
 message-service/target
 userprofil-service/target
+.classpath
+.project
+.settings
 
 pom.xml.tag
 pom.xml.releaseBackup

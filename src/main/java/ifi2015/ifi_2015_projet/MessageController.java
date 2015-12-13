@@ -26,9 +26,7 @@ public class MessageController {
 		HttpHeaders requestHttpHeader = new HttpHeaders();
 		requestHttpHeader.setContentType(MediaType.APPLICATION_JSON);
 		
-		message.setHashtag("hashtag");
-		
-		HttpEntity<String> requestHttpEntity = new HttpEntity<String>("{\"content\":\""+message.getContent()+"\", \"hashtag\":\""+message.getHashtag()+"\" }", requestHttpHeader);
+		HttpEntity<String> requestHttpEntity = new HttpEntity<String>("{\"content\":\""+message.getContent()+"\" }", requestHttpHeader);
 		restTemplate.exchange("http://localhost:9393/messages/message", HttpMethod.POST, requestHttpEntity, String.class);
 		
 		model.addAttribute("message", new Message());
@@ -49,20 +47,13 @@ public class MessageController {
 		HttpEntity<String> requestHttpEntity = new HttpEntity<String>("", requestHttpHeader);
 		HttpEntity<String> responseHttpEntity = restTemplate.exchange("http://localhost:9393/messages", HttpMethod.GET, requestHttpEntity, String.class);
 
-		String name = responseHttpEntity.getBody();
-		String[] messageContenuHastag = name.split("}");
-		String [] contenuMessage;
-		String [] c;
-		String [] h;
+		String reponse = responseHttpEntity.getBody();
+		String[] messageContenu = reponse.split("}");
 		
-		for(int i=0;i<messageContenuHastag.length-1;i++){
-			Message message= new Message();
-			String m = messageContenuHastag[i].substring(1);
-			contenuMessage = m.split(",");
-			c = contenuMessage[0].split(":");
-			h = contenuMessage[1].split(":");
-			message.setContent(c[1].split("\"")[1]);
-			message.setHashtag(h[1].split("\"")[1]);
+		for(int i=0;i<messageContenu.length-1;i++){
+			String[] contenu = messageContenu[i].split(":");
+			String content = contenu[1].substring(1, contenu[1].length()-1);
+			Message message= new Message(content);
 			messages.add(message);
 		}
 		
