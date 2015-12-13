@@ -17,10 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UserController {
-	
-	public static String xSessionId = null;
-	public static String username = null;
-	public static String name = null;
+
+	public static String xSessionId;
+	public static String username;
+	public static String name;
 	
 	@RequestMapping(value = "/userlogin", method=RequestMethod.POST)
 	public String userSubmit(@ModelAttribute User user, Model model){
@@ -38,13 +38,9 @@ public class UserController {
     	responseHttpHeader = responseHttpEntity.getHeaders();
     	
     	xSessionId = responseHttpHeader.get("xSessionId").get(0);
-    	
     	model.addAttribute("xsessionId", xSessionId);
-    	
     	user.setSession(xSessionId);
-    	    	
-		
-		
+
 		HttpHeaders requestHttpHeaderNa = new HttpHeaders();
 		requestHttpHeaderNa.set("xSessionId", xSessionId);
 		
@@ -58,6 +54,7 @@ public class UserController {
 		String nom = nomprenom[11];
 		
 		name=" "+prenom+" "+nom;
+		username = user.getLogin();
 		
 		model.addAttribute("user", user);
 		model.addAttribute("name",name);

@@ -8,4 +8,7 @@ C:\Users\Gamba\workspace\ifi-2015-projet\message-service\src\main\java\messages\
 C:\Users\Gamba\workspace\ifi-2015-projet\message-service\src\main\java\messages\repository\MessageRepository.java
 C:\Users\Gamba\workspace\ifi-2015-projet\message-service\src\main\java\messages\Main.java
 C:\Users\Gamba\workspace\ifi-2015-projet\message-service\src\main\java\messages\MessageController.java
+<<<<<<< HEAD
 >>>>>>> Enregistrement de message dans le repository, mais qui produit un bug et redirige vers la page d'erreur
+=======
+>>>>>>> Enregistrement de message possible dans la base

@@ -34,17 +34,7 @@ public class Message {
 		this.hashtag = hashtag;
 	}
 	
-	/*public Hashtag getHashtag() {
-		return hashtag;
+	public String toString() {
+		return this.content + "  " + this.hashtag;
 	}
-	
-	public void setHashtag(Hashtag hashtag) {
-		this.hashtag = hashtag;
-	}*/
-	
-	public String toString(){
-		return " "+ content+"  "+hashtag;
-	}
-	
-	
 }
