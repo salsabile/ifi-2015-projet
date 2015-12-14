@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
@@ -34,10 +35,32 @@ public class MessageController {
 		
 		messages = new ArrayList<Message>();
 		messages = afficherMessage(messages, model);
-		MessageController.afficherHashtag(MessageController.messages);
+		afficherHashtag(messages);
 		model.addAttribute("messages", messages);
 		
 		return "index";
+	}
+	
+	@RequestMapping(value = "/hashtag/{hashtag}", method=RequestMethod.GET)
+	public String messageHashtag(@PathVariable String hashtag, Model model) {
+		
+		messages = new ArrayList<Message>();
+		messages = MessageController.afficherMessage(messages, model);
+		
+		afficherHashtag(messages);
+		ArrayList<Message> messagesHashtag = new ArrayList<Message>();
+		
+		for (Message message : messages) {
+			if(message.getHashtags().contains(hashtag)) {
+				messagesHashtag.add(message);
+			}
+		}
+		
+		model.addAttribute("message", new Message());
+		model.addAttribute("hashtag", hashtag);
+		model.addAttribute("messages", messagesHashtag);
+		
+		return "hashtag";
 	}
 	
 	public static ArrayList<Message> afficherMessage(ArrayList<Message> messages, Model model) {
@@ -97,7 +120,7 @@ public class MessageController {
 			String[] listeMot = message.getContent().split(" ");
 			for (String mot : listeMot) {
 				if (mot.charAt(0) == '#') {
-					listeHashtag.add(mot);
+					listeHashtag.add(mot.substring(1));
 				}
 			}
 			message.setHashtags(listeHashtag);

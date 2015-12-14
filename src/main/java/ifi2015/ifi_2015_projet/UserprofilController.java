@@ -64,7 +64,7 @@ public class UserprofilController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/{contact}", method=RequestMethod.GET)
+	@RequestMapping(value = "/contact/{contact}", method=RequestMethod.GET)
 	public String friendprofil(@PathVariable String contact, Model model) {
 		
 		RestTemplate restTemplate = new RestTemplate();
@@ -88,6 +88,7 @@ public class UserprofilController {
 		model.addAttribute("userprofil",userprofil);
 		MessageController.messages = new ArrayList<Message>();
 		MessageController.messages = MessageController.afficherMessageContact(MessageController.messages, contact, model);
+		MessageController.afficherHashtag(MessageController.messages);
 		model.addAttribute("messages", MessageController.messages);
 		model.addAttribute("name",UserController.name);
 		return "profil";

@@ -72,6 +72,8 @@
                 			</div>
                 			
                 			By <a class="post-author" th:text="${post.login}" th:href="${post.login}"></a>
+                			under
+                			<a th:each="hashtag : ${post.hashtags}" th:inline="text" class="post-category post-category-js" th:href="@{/hashtag/} + ${hashtag}" >#[[${hashtag}]]</a>
                 		</section>
                 	</div>
                 </div>

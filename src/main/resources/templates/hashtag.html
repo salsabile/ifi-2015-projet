@@ -33,32 +33,18 @@
 		
 		<div class="content pure-u-1 pure-u-md-3-4">
 			<div>
-				<h1 th:inline="text" > Bienvenue [[${name}]] !</h1>
-				<p>Dis quelque chose sur : </p>
-				<form class="pure-form pure-form-aligned" action="#" th:action="@{/messageEnvoyer}" th:object="${message}" method="post">
-				 
-				    <textarea id="content" th:field="*{content}" class="form-control" rows="3"></textarea>
-				    <input class="pure-button pure-button-primary" type="submit" value="Dis le !" />
-	            </form>
-			</div>
-		</div>
-		
-		<div class="content pure-u-1 pure-u-md-3-4">
-			<div>
-				<div class="posts">
-                	<h1 class="content-subhead">Derniers messages</h1>
-                	<div>
-                		<section th:each="post : ${messages}" class="post">
-                			<div class="post-description">
-                				<p th:text="${post.content}"></p>
-                			</div>
+				<h1 th:inline="text" class="content-subhead">Hashtag : #[[${hashtag}]]</h1>
+				<div>
+					<section th:each="post : ${messages}" class="post">
+                		<div class="post-description">
+                			<p th:text="${post.content}"></p>
+                		</div>
                 			
-                			By <a class="post-author" th:text="${post.login}" th:href="@{/contact/} + ${post.login}"></a>
-                			under
-                			<a th:each="hashtag : ${post.hashtags}" th:inline="text" class="post-category post-category-js" th:href="@{/hashtag/} + ${hashtag}" >#[[${hashtag}]]</a>
-                		</section>
-                	</div>
-                </div>
+                		By <a class="post-author" th:text="${post.login}" th:href="${post.login}"></a>
+                		under
+                		<a th:each="hashtag : ${post.hashtags}" th:inline="text" class="post-category post-category-js" th:href="${hashtag}">[[${hashtag}]]</a>
+                	</section>
+				</div>
 			</div>
 		</div>
 	</div>
