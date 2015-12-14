@@ -9,16 +9,8 @@ public class User {
 	@Id
 	@Column(name="login")
 	private String login;
-	
 	private String pass;
-	
 	private String xsessionId;
-	/*@Column(name = "email")
-	private String email;*/
-	//private String photo;
-	/*private int facebookid;
-	private Skill skill;
-	private Projet projet;*/
 	
 	public User(){
 	

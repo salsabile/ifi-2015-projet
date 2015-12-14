@@ -1,35 +1,29 @@
 package ifi2015.ifi_2015_projet;
 
-import java.io.File;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="DOCUMENT")
 public class Document {
 	
-	private String name;
-	private File UUID;
-	private Doctype type;
+	@Id
+	private String filename;
 	
-	public String getName() {
-		return name;
+	public Document(String filename) {
+		this.filename = filename;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
+	public Document(){
 	}
 	
-	public File getUUID() {
-		return UUID;
+	public String getFilename() {
+		return filename;
 	}
 	
-	public void setUUID(File uUID) {
-		UUID = uUID;
-	}
-	
-	public Doctype getType() {
-		return type;
-	}
-	
-	public void setType(Doctype type) {
-		this.type = type;
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 	
 }

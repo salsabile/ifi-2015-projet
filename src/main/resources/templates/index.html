@@ -36,10 +36,19 @@
 				<h1 th:inline="text" > Bienvenue [[${name}]] !</h1>
 				<p>Dis quelque chose sur : </p>
 				<form class="pure-form pure-form-aligned" action="#" th:action="@{/messageEnvoyer}" th:object="${message}" method="post">
-				 
 				    <textarea id="content" th:field="*{content}" class="form-control" rows="3"></textarea>
-				    <input class="pure-button pure-button-primary" type="submit" value="Dis le !" />
+				    <input class="pure-button pure-button-primary" type="submit" value="Envoyer message" />
 	            </form>
+	            
+	            <p> Ou </p>
+	            
+				<form class="pure-form pure-form-aligned" action="#" th:action="@{/document}" enctype="multipart/form-data" method="post">
+					<div class="pure-control-group">
+						<input type="file" name="file"/>
+						<input type="submit" value="envoyer"/>
+					</div>
+	        	</form>
+	        	
 			</div>
 		</div>
 		
