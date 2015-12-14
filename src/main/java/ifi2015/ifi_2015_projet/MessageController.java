@@ -34,6 +34,7 @@ public class MessageController {
 		
 		messages = new ArrayList<Message>();
 		messages = afficherMessage(messages, model);
+		MessageController.afficherHashtag(MessageController.messages);
 		model.addAttribute("messages", messages);
 		
 		return "index";
@@ -64,7 +65,7 @@ public class MessageController {
 		return messages;
 	}
 	
-public static ArrayList<Message> afficherMessageContact(ArrayList<Message> messages, String contact, Model model) {
+	public static ArrayList<Message> afficherMessageContact(ArrayList<Message> messages, String contact, Model model) {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		HttpHeaders requestHttpHeader = new HttpHeaders();
@@ -87,6 +88,20 @@ public static ArrayList<Message> afficherMessageContact(ArrayList<Message> messa
 		}
 		
 		return messages;
+	}
+	
+	public static void afficherHashtag(ArrayList<Message> messages) {
+		
+		for (Message message : messages) {
+			ArrayList<String> listeHashtag = new ArrayList<String>();
+			String[] listeMot = message.getContent().split(" ");
+			for (String mot : listeMot) {
+				if (mot.charAt(0) == '#') {
+					listeHashtag.add(mot);
+				}
+			}
+			message.setHashtags(listeHashtag);
+		}
 	}
 	
 	

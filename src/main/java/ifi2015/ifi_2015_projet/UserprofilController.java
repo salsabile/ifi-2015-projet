@@ -59,6 +59,7 @@ public class UserprofilController {
 		
 		MessageController.messages = new ArrayList<Message>();
 		MessageController.messages = MessageController.afficherMessage(MessageController.messages, model);
+		MessageController.afficherHashtag(MessageController.messages);
 		model.addAttribute("messages", MessageController.messages);
 		return "index";
 	}

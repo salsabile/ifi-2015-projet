@@ -59,6 +59,8 @@ public class UserController {
 		MessageController.messages = new ArrayList<Message>();
 		MessageController.messages = MessageController.afficherMessage(MessageController.messages, model);
 		
+		MessageController.afficherHashtag(MessageController.messages);
+		
 		model.addAttribute("user", user);
 		model.addAttribute("name",name);
 		model.addAttribute("message", new Message());
@@ -74,6 +76,7 @@ public class UserController {
 		
 		MessageController.messages = new ArrayList<Message>();
 		MessageController.messages = MessageController.afficherMessage(MessageController.messages, model);
+		MessageController.afficherHashtag(MessageController.messages);
 		model.addAttribute("messages", MessageController.messages);
 		return "index";
 	}
