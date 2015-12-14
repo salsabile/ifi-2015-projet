@@ -20,8 +20,8 @@ public class Main {
         return new CommandLineRunner() {
             @Override
             public void run(String... strings) throws Exception {
-                repository.save(new Message("bonjour"));
-                repository.save(new Message("Dark Maul"));
+                repository.save(new Message("Que la force soit avec toi !", "Yoda"));
+                repository.save(new Message("Je suis un putain de Sith..", "Dark Maul"));
             }
         };
     }

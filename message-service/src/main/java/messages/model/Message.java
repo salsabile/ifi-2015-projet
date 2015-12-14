@@ -8,9 +8,11 @@ public class Message {
 	
 	@Id
 	private String content;
+	private String login;
 	
-	public Message(String content){
+	public Message(String content, String login){
 		this.content=content;
+		this.login=login;
 	}
 	
 	public Message(){	
@@ -22,5 +24,13 @@ public class Message {
 	
 	public void setContent(String content) {
 		this.content = content;
+	}
+	
+	public String getLogin() {
+		return login;
+	}
+	
+	public void setLogin(String login) {
+		this.login = login;
 	}
 }

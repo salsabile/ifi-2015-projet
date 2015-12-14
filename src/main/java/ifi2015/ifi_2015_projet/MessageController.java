@@ -26,7 +26,7 @@ public class MessageController {
 		HttpHeaders requestHttpHeader = new HttpHeaders();
 		requestHttpHeader.setContentType(MediaType.APPLICATION_JSON);
 		
-		HttpEntity<String> requestHttpEntity = new HttpEntity<String>("{\"content\":\""+message.getContent()+"\" }", requestHttpHeader);
+		HttpEntity<String> requestHttpEntity = new HttpEntity<String>("{\"content\":\""+message.getContent()+"\", \"login\":\""+UserController.username+"\" }", requestHttpHeader);
 		restTemplate.exchange("http://localhost:9393/messages/message", HttpMethod.POST, requestHttpEntity, String.class);
 		
 		model.addAttribute("message", new Message());
@@ -46,14 +46,18 @@ public class MessageController {
 		
 		HttpEntity<String> requestHttpEntity = new HttpEntity<String>("", requestHttpHeader);
 		HttpEntity<String> responseHttpEntity = restTemplate.exchange("http://localhost:9393/messages", HttpMethod.GET, requestHttpEntity, String.class);
-
+	
 		String reponse = responseHttpEntity.getBody();
-		String[] messageContenu = reponse.split("}");
+		String[] messageContenuLogin = reponse.split("}");
 		
-		for(int i=0;i<messageContenu.length-1;i++){
-			String[] contenu = messageContenu[i].split(":");
-			String content = contenu[1].substring(1, contenu[1].length()-1);
-			Message message= new Message(content);
+		for(int i=0;i<messageContenuLogin.length-1;i++){
+			Message message = new Message();
+			String messageContenu = messageContenuLogin[i].substring(1);
+			String[] contenuMessage = messageContenu.split(",");
+			String[] contenu = contenuMessage[0].split(":");
+			String[] auteur = contenuMessage[1].split(":");
+			message.setContent(contenu[1].split("\"")[1]);
+			message.setLogin(auteur[1].split("\"")[1]);
 			messages.add(message);
 		}
 		
