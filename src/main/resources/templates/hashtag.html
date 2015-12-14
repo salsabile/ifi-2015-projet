@@ -36,6 +36,7 @@
 				<h1 th:inline="text" class="content-subhead">Hashtag : #[[${hashtag}]]</h1>
 				<div>
 					<section th:each="post : ${messages}" class="post">
+						<img class="post-avatar" th:alt="'avatar '+${post.login}" height="48" width="48" th:src="@{/images/{username}-avatar.png(username=${post.login})}"/>
                 		<div class="post-description">
                 			<p th:text="${post.content}"></p>
                 		</div>

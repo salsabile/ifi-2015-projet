@@ -36,6 +36,7 @@
 				<div class="posts">
 	                <h1 class="content-subhead">Profil</h1>
 	                <h1 th:inline="text"> [[${userprofil.login}]]</h1>
+	                <img class="avatar" th:src="@{/images/{username}-avatar.png(username=${userprofil.login})}"/>
 				
 					<form class="pure-form pure-form-aligned">
 	                    <fieldset>
@@ -67,6 +68,7 @@
                 	<h1 class="content-subhead">Derniers messages</h1>
                 	<div>
                 		<section th:each="post : ${messages}" class="post">
+                			<img class="post-avatar" th:alt="'avatar '+${post.login}" height="48" width="48" th:src="@{/images/{username}-avatar.png(username=${post.login})}"/>
                 			<div class="post-description">
                 				<p th:text="${post.content}"></p>
                 			</div>
