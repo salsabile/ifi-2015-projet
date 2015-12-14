@@ -52,7 +52,7 @@ Server → Apache-Coyote/1.1
 ### Listing des utilisateurs
 
 login | mail | facebook | twitter | linkedin | competence | projet
----------|--------|-----|-------------
+---------|--------|-----|------------|-----|-----|-----
 a|email@email.fr|facebook|twitter|linkedinid|Aucune|Aucun
 jgamba|jgamba@email.fr|jgambaF|jgambaT|jgambaL|JEE|Réseau social
 cbellart|cbellart@email.fr|cbellartF|||JEE|Réseau social
