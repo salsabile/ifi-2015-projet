@@ -14,7 +14,7 @@ Le web-service écoute sur le port 9292.
 
 ## Exemples de requêtes
 
-#### Récupérer les informations d'un profil
+### Récupérer les informations d'un profil
 ```
 GET /userprofil/cbellart HTTP/1.1
 Host: localhost:9292
@@ -36,7 +36,7 @@ Server → Apache-Coyote/1.1
 ]
 ```
 
-#### Modification d'un profil
+### Modification d'un profil
 ```
 POST /update/jgamba/jgamba@gmail.com/facebook/twitter/linkedin/competence/projet HTTP/1.1
 Host: localhost:9292
@@ -55,7 +55,7 @@ login | mail | facebook | twitter | linkedin | competence | projet
 ---------|--------|-----|------------|-----|-----|-----
 a|email@email.fr|facebook|twitter|linkedinid|Aucune|Aucun
 jgamba|jgamba@email.fr|jgambaF|jgambaT|jgambaL|JEE|Réseau social
-cbellart|cbellart@email.fr|cbellartF|||JEE|Réseau social
-shakimi|shakimi@email.fr|shakimiF"|shakimiT||JEE|Réseau social
-Yoda|yoda_jedi@force.inter|yodaF|yodaT||Force|Meilleur Jedi
-DarkVador|anakin_jedisith@forceobscur.inter|anakinF|anakinTT||Force obscur|Enfant prodige
+cbellart|cbellart@email.fr|cbellartF|Aucun|Aucun|JEE|Réseau social
+shakimi|shakimi@email.fr|shakimiF|shakimiT|Aucun|JEE|Réseau social
+Yoda|yoda_jedi@force.inter|yodaF|yodaT|Aucun|Force|Meilleur Jedi
+DarkVador|anakin_jedisith@forceobscur.inter|anakinF|anakinTT|Aucun|Force obscur|Enfant prodige

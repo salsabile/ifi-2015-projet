@@ -82,6 +82,6 @@ Server → Apache-Coyote/1.1
 ### Listing des messages
 
 content | login
----------|--------
+---------|---------
 Que la #force soit avec toi !|Yoda
 Je suis un futur seigneur Sith..|DarkVador
