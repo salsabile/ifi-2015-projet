@@ -19,7 +19,7 @@ Le web-service écoute sur le port 9393.
 POST /messages/message HTTP/1.1
 Host: localhost:9393
 Content-type : application/json
-{"content" : "c'est un projet", "auteur" : "salsabile"}
+{"content" : "c'est un projet", "login" : "salsabile"}
 ```
 
 ```
