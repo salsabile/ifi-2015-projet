@@ -57,7 +57,7 @@ public class UserController {
 		username = user.getLogin();
 		
 		MessageController.messages = new ArrayList<Message>();
-		MessageController.messages = MessageController.userForm(MessageController.messages, model);
+		MessageController.messages = MessageController.afficherMessage(MessageController.messages, model);
 		
 		model.addAttribute("user", user);
 		model.addAttribute("name",name);
@@ -73,7 +73,7 @@ public class UserController {
 		model.addAttribute("message", new Message());
 		
 		MessageController.messages = new ArrayList<Message>();
-		MessageController.messages = MessageController.userForm(MessageController.messages, model);
+		MessageController.messages = MessageController.afficherMessage(MessageController.messages, model);
 		model.addAttribute("messages", MessageController.messages);
 		return "index";
 	}

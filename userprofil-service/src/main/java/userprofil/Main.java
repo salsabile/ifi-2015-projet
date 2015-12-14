@@ -25,6 +25,8 @@ public class Main {
                 repository.save(new Userprofil("jgamba", "jgamba@email.fr", "jgambaF", "jgambaT", "jgambaL", "JEE", "Réseau social"));
                 repository.save(new Userprofil("cbellart", "cbellart@email.fr", "cbellartF", "", "", "JEE", "Réseau social"));
                 repository.save(new Userprofil("shakimi", "shakimi@email.fr", "shakimiF", "shakimiT", "", "JEE", "Réseau social"));
+                repository.save(new Userprofil("Yoda", "yoda_jedi@force.inter", "yodaF", "yodaT", "", "Force", "Meilleur Jedi"));
+                repository.save(new Userprofil("DarkVador", "anakin_jedisith@forceobscur.inter", "anakinF", "anakinTT", "", "Force obscur", "Enfant prodige"));
             }
         };
     }

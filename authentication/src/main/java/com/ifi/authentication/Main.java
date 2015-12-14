@@ -34,6 +34,8 @@ public class Main {
                 repository.save(new User("jgamba", "Jordann", "Gamba", "jordann"));
                 repository.save(new User("cbellart", "Clement", "Bellart", "clement"));
                 repository.save(new User("shakimi", "Salsabile", "Hakimi", "salsabile"));
+                repository.save(new User("DarkVador", "Anakin", "Skywalker", "anakin"));
+                repository.save(new User("Yoda", "Maitre", "Yoda", "maitre"));
             }
         };
     }

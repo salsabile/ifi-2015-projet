@@ -8,6 +8,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
@@ -40,7 +41,6 @@ public class UserprofilController {
 		model.addAttribute("userprofil",userprofil);
 		
 		return "userprofilform";
-		
 	}
 
 	@RequestMapping(value = "/profilupdate", method=RequestMethod.POST)
@@ -58,9 +58,38 @@ public class UserprofilController {
 		model.addAttribute("message", new Message());
 		
 		MessageController.messages = new ArrayList<Message>();
-		MessageController.messages = MessageController.userForm(MessageController.messages, model);
+		MessageController.messages = MessageController.afficherMessage(MessageController.messages, model);
 		model.addAttribute("messages", MessageController.messages);
 		return "index";
+	}
+	
+	@RequestMapping(value = "/{contact}", method=RequestMethod.GET)
+	public String friendprofil(@PathVariable String contact, Model model) {
+		
+		RestTemplate restTemplate = new RestTemplate();
+		HttpHeaders requestHttpHeader = new HttpHeaders();
+		
+		HttpEntity<String> requestHttpEntity = new HttpEntity<String>("", requestHttpHeader);
+		HttpEntity<String> responseHttpEntity = restTemplate.exchange("http://localhost:9292/userprofil/"+contact, HttpMethod.GET, requestHttpEntity, String.class);
+		
+		Userprofil userprofil = new Userprofil();
+		String userprofils = responseHttpEntity.getBody();
+		
+		String[] infosprofil = userprofils.split("\"");
+		userprofil.setLogin(infosprofil[3]);
+		userprofil.setEmail(infosprofil[7]);
+		userprofil.setFacebookid(infosprofil[11]);
+		userprofil.setTwitterid(infosprofil[15]);
+		userprofil.setLinkedinid(infosprofil[19]);
+		userprofil.setCompetence(infosprofil[23]);
+		userprofil.setProjet(infosprofil[27]);
+	
+		model.addAttribute("userprofil",userprofil);
+		MessageController.messages = new ArrayList<Message>();
+		MessageController.messages = MessageController.afficherMessageContact(MessageController.messages, contact, model);
+		model.addAttribute("messages", MessageController.messages);
+		model.addAttribute("name",UserController.name);
+		return "profil";
 	}
 	
 }

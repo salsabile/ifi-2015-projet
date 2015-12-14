@@ -34,4 +34,10 @@ public class MessageController {
 	public ResponseEntity<Iterable<Message>> message(HttpServletRequest request){
 		return new ResponseEntity<Iterable<Message>>(messageRepository.findAll(), HttpStatus.OK);
 	}	
+	
+	@RequestMapping(method = RequestMethod.GET, value = "{contact}")
+    @ResponseBody
+    public ResponseEntity<Iterable<Message>> messageContact(@PathVariable String contact, HttpServletRequest request){
+		return new ResponseEntity<Iterable<Message>>(messageRepository.findMessageByLogin(contact), HttpStatus.OK);
+	}
 }

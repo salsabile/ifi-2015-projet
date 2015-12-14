@@ -33,13 +33,13 @@ public class MessageController {
 		model.addAttribute("name",UserController.name);
 		
 		messages = new ArrayList<Message>();
-		messages = userForm(messages, model);
+		messages = afficherMessage(messages, model);
 		model.addAttribute("messages", messages);
 		
 		return "index";
 	}
 	
-	public static ArrayList<Message> userForm(ArrayList<Message> messages, Model model) {
+	public static ArrayList<Message> afficherMessage(ArrayList<Message> messages, Model model) {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		HttpHeaders requestHttpHeader = new HttpHeaders();
@@ -63,4 +63,31 @@ public class MessageController {
 		
 		return messages;
 	}
+	
+public static ArrayList<Message> afficherMessageContact(ArrayList<Message> messages, String contact, Model model) {
+		
+		RestTemplate restTemplate = new RestTemplate();
+		HttpHeaders requestHttpHeader = new HttpHeaders();
+		
+		HttpEntity<String> requestHttpEntity = new HttpEntity<String>("", requestHttpHeader);
+		HttpEntity<String> responseHttpEntity = restTemplate.exchange("http://localhost:9393/messages/" + contact, HttpMethod.GET, requestHttpEntity, String.class);
+	
+		String reponse = responseHttpEntity.getBody();
+		String[] messageContenuLogin = reponse.split("}");
+		
+		for(int i=0;i<messageContenuLogin.length-1;i++){
+			Message message = new Message();
+			String messageContenu = messageContenuLogin[i].substring(1);
+			String[] contenuMessage = messageContenu.split(",");
+			String[] contenu = contenuMessage[0].split(":");
+			String[] auteur = contenuMessage[1].split(":");
+			message.setContent(contenu[1].split("\"")[1]);
+			message.setLogin(auteur[1].split("\"")[1]);
+			messages.add(message);
+		}
+		
+		return messages;
+	}
+	
+	
 }
