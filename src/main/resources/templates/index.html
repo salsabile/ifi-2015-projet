@@ -61,7 +61,7 @@
                 		<img class="post-avatar" th:alt="'avatar '+${post.login}" height="48" width="48" th:src="@{/images/{username}-avatar.png(username=${post.login})}"/>
                 		
                 			<div class="post-description">
-                				<p th:text="${post.content}"></p>
+                				<p th:utext="${post.content}"></p>
                 			</div>
                 			
                 			By <a class="post-author" th:text="${post.login}" th:href="@{/contact/} + ${post.login}"></a>
