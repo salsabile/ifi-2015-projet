@@ -14,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,13 +23,14 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class DocumentController {
 
+		
 	@RequestMapping(value = "/document", method=RequestMethod.POST)
 	public String sendDocument(@RequestParam("file") MultipartFile file, Model model) throws IOException {
 		
 		String filename = file.getOriginalFilename();
 		String name = filename.split("\\.")[0];
 		String extension = filename.split("\\.")[1];
-		String messagePieceJointe = "Je vous partage ce fichier <a href=/documents/"+filename+">"+filename+"</a> #File";
+		String messagePieceJointe = "Je vous partage ce fichier <a href=/document/"+filename+">"+filename+"</a> #File";
 		
 		File fileTemporaire = File.createTempFile(name, extension);
 		FileCopyUtils.copy(file.getInputStream(), new FileOutputStream(fileTemporaire));
@@ -63,18 +63,4 @@ public class DocumentController {
 		
 		return "index";
 	}
-	
-	@RequestMapping(value = "/document/{file}", method=RequestMethod.GET)
-	public String downloadDocument(@PathVariable("file") String file, Model model) throws IOException {
-		
-		MessageController.messages = new ArrayList<Message>();
-		MessageController.messages = MessageController.afficherMessage(MessageController.messages, model);
-		MessageController.afficherHashtag(MessageController.messages);
-		model.addAttribute("message", new Message());
-		model.addAttribute("name",UserController.name);
-		model.addAttribute("messages", MessageController.messages);
-		
-		return "index";
-	}	
-
 }
